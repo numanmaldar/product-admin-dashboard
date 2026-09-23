@@ -39,18 +39,17 @@ export default function NewProductPage() {
       // Use a locally-unique fake id instead so this doesn't collide with real product ids.
       const fakeId = Date.now();
       const finalProduct: Product = {
-        id: fakeId,
-        title: form.title ?? "",
-        description: form.description ?? "",
-        category: form.category ?? "",
-        price: form.price ?? 0,
-        rating: form.rating ?? 0,
-        stock: form.stock ?? 0,
-        images: form.thumbnail ? [form.thumbnail] : [],
-        thumbnail: form.thumbnail ?? "https://placehold.co/200x200?text=No+Image",
-        ...created, // in case the API response has anything useful, spread last so our fields win where set
-        id: fakeId,
-      };
+  ...created,
+  id: fakeId,
+  title: form.title ?? "",
+  description: form.description ?? "",
+  category: form.category ?? "",
+  price: form.price ?? 0,
+  rating: form.rating ?? 0,
+  stock: form.stock ?? 0,
+  images: form.thumbnail ? [form.thumbnail] : [],
+  thumbnail: form.thumbnail ?? "https://placehold.co/200x200?text=No+Image",
+};
       setOverride(fakeId, finalProduct);
       router.push("/products");
     } catch {
